@@ -1,0 +1,158 @@
+html, body, div, p, h1, h2, h3, h4, h5, h6, canvas {
+  margin: 0px;
+  padding: 0px;
+}
+
+body {
+  color: #3E3D40;
+  background-color: #EDEDED;
+  font-family: "Arimo", "Tahoma";
+  font-size: 0.9em;
+}
+
+/* Collection */
+#collection {
+  border-radius: 1px;
+  border: 1px solid #3E3D40;
+  box-shadow: 0px 0px 3px 0px #3E3D40;
+  float: left;
+  margin: 0.2px 0.7em 0.2em 0.2em;
+  padding: 0.5em 0em;
+}
+
+#collection > .category {
+  border-top: 3px solid #3E3D40;
+  border-bottom: 3px solid #3E3D40;
+}
+#collection > .category ~ .category {
+  margin-top: 2em;
+}
+
+#collection > .category > .title {
+  border-bottom: 1px solid #3E3D40;
+/*  display: inline-block;*/
+  font-weight: bold;
+  padding: 0.2em 0.2em;
+}
+
+#collection > .category .add,
+#collection > .category .remove {
+  cursor: pointer;
+  font-weight: bold;
+  float: right;
+  margin-left: 0.5em;
+}
+#collection > .category .add:hover,
+#collection > .category .remove:hover {
+  -moz-transform: scale(1.2);
+}
+#collection > .category .add {
+
+}
+#collection > .category .remove {
+  visibility: hidden;
+}
+#collection > .category .remove:after {
+  content: '-';
+}
+#collection > .category > .item:hover .remove {
+  visibility: visible;
+}
+
+#collection > .category > .item {
+  -moz-transition-property: background-color;
+  -moz-transition-duration: 0.33s;
+  padding: 0.2em 0.5em;
+  margin: 0.2em 0em;
+}
+#collection > .category > .item ~ .item {
+  border-top: 1px solid #3E3D40;
+}
+#collection > .category > .item:hover {
+  background: -moz-linear-gradient(top, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.3));
+}
+
+#collection > .category > .item > .title {
+  cursor: pointer;
+}
+#collection > .category > .item > .title:hover {
+  
+}
+
+
+/* Library */
+#library {
+  border: 1px solid black;
+  float: right;
+  margin: 5px;
+}
+
+
+/* Workspace */
+#workspaces {
+  float: left;
+  margin: 0em 1em;
+}
+
+.workspace {
+  border-radius: 15px 15px 5px 5px;
+  border: 1px solid #3E3D40;
+  box-shadow: 0px 0px 2px 0px #3E3D40;
+  position: relative;
+}
+.workspace ~ .workspace {
+  margin-top: 0.4em;
+}
+.workspace.reduced {
+  border-radius: 0px;
+}
+
+.workspace > .header {
+  border-radius: 15px 15px 0px 0px;
+  border-bottom: 2px solid #3E3D40;
+  padding: 0.3em 1em;
+}
+.workspace.reduced > .header {
+  border-bottom: 0px;
+  border-radius: 0px;
+}
+
+.workspace > .header > .title {
+  display: inline-block;
+  padding: 2px 5px;
+}
+
+.workspace > .header > .controls {
+  float: right;
+}
+.controls > .control {
+  cursor: pointer;
+  display: inline;
+  font-weight: bold;
+}
+.controls > .control:hover {
+  
+}
+.controls > .control:not(:first-of-type) {
+  margin-left: 0.5em;
+}
+.controls > .reduce:after {
+  content: '-';
+}
+.reduced .controls > .reduce:after {
+  content: '+';
+}
+.controls > .close:after {
+  content: 'x';
+}
+
+.workspace > .container {
+  border-radius: 0px 0px 5px 5px;
+}
+.workspace.reduced > .container {
+  display: none;
+}
+
+.workspace > .container > canvas {
+
+}
