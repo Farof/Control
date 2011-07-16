@@ -8,6 +8,16 @@
   </head>
 
   <body>
+    <div id="debugbar">
+      <button onclick="control.bootstrap();">bootstrap</button>
+      <button onclick="throw new Error('not yet implemented')">clear data</button>
+      <button onclick="control.help();">help</button>
+      
+      <div id="credits">
+        <p>Work in progress, by Farof (<a href="https://github.com/Farof/Control">github</a> ; <a href="http://twitter.com/farof">twitter</a>) under <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/legalcode">CreativeCommon BY-NC-SA</a></p>
+      </div>
+    </div>
+    
     <div id="collection">
       <div id="processes" class="category">
         <p class="title">Processes <span class="add" onclick="Process.create();">+</span></p>
@@ -22,7 +32,7 @@
     </div>
 
     <div id="library">
-
+      <p class="title">Library</p>
     </div>
   </body>
 
@@ -39,11 +49,15 @@
   <script type="application/x-javascript" src="script/interfaces/Events.js"></script>
   <script type="application/x-javascript" src="script/interfaces/Named.js"></script>
   <script type="application/x-javascript" src="script/interfaces/Collection.js"></script>
+  <script type="application/x-javascript" src="script/interfaces/Map.js"></script>
 
   <script type="application/x-javascript" src="script/View.js"></script>
   <script type="application/x-javascript" src="script/Process.js"></script>
   <script type="application/x-javascript" src="script/Workspace.js"></script>
   <script type="application/x-javascript" src="script/CollectionItem.js"></script>
+  <script type="application/x-javascript" src="script/LibraryItem.js"></script>
+  <script type="application/x-javascript" src="script/WorkspaceItem.js"></script>
+  <script type="application/x-javascript" src="script/WorkspaceItemType.js"></script>
 
   <script type="application/x-javascript" src="script/bootstrap.js"></script>
   <script type="application/x-javascript" src="script/app.js"></script>

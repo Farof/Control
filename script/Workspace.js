@@ -4,14 +4,14 @@
   var Workspace = exports.Workspace = function (process) {
     this.process = process;
   };
-  
+
   Workspace.extends({
     width: {
       value: 600,
       enumerable: true,
       writable: true
     },
-    
+
     height: {
       value: 500,
       enumerable: true,
@@ -40,6 +40,7 @@
         if (!this.loaded) {
           this.expanded = expand || expand === Object.undef;
           document.getElementById('workspaces').appendChild(this.toElement());
+          this.process.items.forEach(this.add.bind(this));
         }
         return this;
       }
@@ -96,12 +97,26 @@
         return this;
       }
     },
-    
+
     dispose: {
       enumerable: true,
       value: function () {
         this.unload();
         return this;
+      }
+    },
+
+    add: {
+      enumerable: true,
+      value: function (item) {
+        this.view.items.appendChild(item.toElement());
+      }
+    },
+
+    remove: {
+      enumerable: true,
+      value: function (item) {
+        throw new Error('not yet implemented');
       }
     },
 

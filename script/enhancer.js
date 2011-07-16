@@ -40,6 +40,16 @@
       value: function (value) {
         return !Object.F(value);
       }
+    },
+    
+    merge: {
+      value: function (source, adds) {
+        var key;
+        for (key in adds) {
+          source[key] = adds[key];
+        }
+        return source;
+      }
     }
   });
   

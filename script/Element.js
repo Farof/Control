@@ -18,14 +18,6 @@
   };
   
   exports.Element.Mutators = {
-    /*bound: function (pair) {
-      var source = pair[0], prop = pair[1], node = this;
-      source.watch(prop, function (id, oldval, newval) {
-        node.textContent = newval;
-        return newval;
-      });
-    },*/
-    
     events: function (events) {
       var 
         event,

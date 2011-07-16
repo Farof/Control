@@ -1,25 +1,25 @@
 (function (exports) {
   "use strict";
 
-  var Collection = exports.Collection = function (Type, defaultName) {
-    var collection = [];
+  var Map = exports.Map = function (Type, defaultName) {
+    var map = {};
     
     Type.implements(new Events());
     Type.implements(new Named(defaultName));
     
     return {
-      items: {
+      map: {
         enumerable: true,
         get: function () {
-          return collection;
+          return map;
         }
       },
       
-      create: {
+      add: {
         enumerable: true,
-        value: function () {
-          var item = new Type(true);
-          collection.push(item);
+        value: function (options) {
+          var item = new Type(options);
+          map[options.type] = item;
           return this;
         }
       }
