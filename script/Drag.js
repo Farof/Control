@@ -36,6 +36,8 @@
         this.oriY = this.event.clientY;
         this.offsetX = this.node.offsetLeft;
         this.offsetY = this.node.offsetTop;
+        this.scrollOriX = window.scrollX;
+        this.scrollOriY = window.scrollY;
 
         parent.removeChild(this.node);
         parent.appendChild(this.node);
@@ -55,10 +57,12 @@
         var
           item = this.node,
           style = item.style,
-          left = (this.offsetX + (event.clientX - this.oriX)),
-          top = (this.offsetY + (event.clientY - this.oriY)),
-          maxWidth = (this.containerIsWindow ? this.container.innerWidth : this.container.clientWidth) - item.scrollWidth,
-          maxHeight = (this.containerIsWindow ? this.container.innerHeight : this.container.clientHeight) - item.scrollHeight;
+          scrollDiffX = window.scrollX - this.scrollOriX,
+          scrollDiffY = window.scrollY - this.scrollOriY,
+          left = (this.offsetX + (event.clientX - this.oriX) + scrollDiffX),
+          top = (this.offsetY + (event.clientY - this.oriY) + scrollDiffY),
+          maxWidth = (this.containerIsWindow ? this.container.innerWidth : this.container.clientWidth) - item.scrollWidth + scrollDiffX,
+          maxHeight = (this.containerIsWindow ? this.container.innerHeight : this.container.clientHeight) - item.scrollHeight + scrollDiffY;
 
         this.moveEvent = event;
 
