@@ -9,11 +9,11 @@
             return false;
           }
         }
-        
+
         return true;
       }
     },
-    
+
     implements: {
       value: function (obj, refInterface) {
         if (obj && refInterface && typeof refInterface === 'object') {
@@ -21,27 +21,27 @@
             return Object.T(obj[key]);
           });
         }
-        
+
         return false;
       }
     },
-    
+
     undef: {
       value: (function () {} ())
     },
-    
+
     F: {
       value: function (value) {
         return value === null || value === Object.undef;
       }
     },
-    
+
     T: {
       value: function (value) {
         return !Object.F(value);
       }
     },
-    
+
     merge: {
       value: function (source, adds) {
         var key;
@@ -52,11 +52,11 @@
       }
     }
   });
-  
+
   Object.defineProperties(Object.prototype, {
-    
+
   });
-  
+
   Object.defineProperties(HTMLElement.prototype, {
     unload: {
       enumerable: true,
@@ -68,7 +68,7 @@
         return false;
       }
     },
-    
+
     empty: {
       enumerable: true,
       value: function () {
@@ -78,7 +78,7 @@
         return this;
       }
     },
-    
+
     replaces: {
       enumerable: true,
       value: function (replaced) {
@@ -86,9 +86,38 @@
           replaced.parentNode.replaceChild(this, replaced);
         }
       }
+    },
+    
+    pos: {
+      enumerable: true,
+      value: function (topParent) {
+        var
+          parent,
+          node = this,
+          coord = {
+            left: node.offsetLeft,
+            top: node.offsetTop
+          };
+        
+        topParent = topParent || document;
+        parent = node.offsetParent;
+
+        while (parent && parent !== topParent) {
+          coord.left += parent.offsetLeft;
+          coord.top += parent.offsetTop;
+          parent = parent.offsetParent;
+        }
+        
+        coord.right = coord.left + node.scrollWidth;
+        coord.centerX = coord.left + node.scrollWidth / 2;
+        coord.bottom = coord.top + node.scrollHeight;
+        coord.centerY = coord.top + node.scrollHeight / 2;
+
+        return coord;
+      }
     }
   });
-  
+
   Object.defineProperties(Function.prototype, {
     extends: {
       value: function (properties) {
@@ -96,14 +125,14 @@
         return this;
       }
     },
-    
+
     implements: {
       value: function (properties) {
         Object.defineProperties(this.prototype, properties);
         return this;
       }
     },
-    
+
     delay: {
       value: function (delay, bind) {
         var func = this;
@@ -112,7 +141,7 @@
         }, delay);
       }
     },
-    
+
     unshift: {
       value: function (arg, bind) {
         var func = this;
@@ -122,7 +151,7 @@
       }
     }
   });
-  
+
   Object.defineProperties(Event.prototype, {
     stop: {
       enumerable: true,
@@ -132,26 +161,26 @@
       }
     }
   }),
-  
+
   Object.defineProperties(Array.prototype, {
     first: {
       get: function () {
         return this[0];
       }
     },
-    
+
     last: {
       get: function () {
         return this[this.lenght - 1];
       }
     },
-    
+
     contains: {
       value: function (item) {
         return this.indexOf(item) > -1;
       }
     },
-    
+
     include: {
       value: function (item, pass) {
         if (!pass && Array.isArray(item)) {
@@ -163,7 +192,7 @@
         return this;
       }
     },
-    
+
     merge: {
       value: function (items) {
         var i, ln;
@@ -173,7 +202,7 @@
         return this;
       }
     },
-    
+
     remove: {
       value: function (item) {
         var i = this.indexOf(item);
@@ -183,6 +212,28 @@
         return null;
       }
     }
-  })
+  });
+
+  Object.defineProperties(Number.prototype, {
+    bounds: {
+      value: function (min, max) {
+        var ret = this;
+
+        //console.log('bound: ' + ret + ' in ' + '[' + min + ', ' + max + ']');
+
+        max = max || (min ? 0 : 100);
+        min = min || 0;
+        if (min > max) {
+          [min, max] = [max, min];
+        }
+        
+        
+
+        return  ret < min ? min :
+                ret > max ? max :
+                            ret;
+      }
+    }
+  });
 
 }(window));

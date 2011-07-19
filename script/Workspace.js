@@ -110,6 +110,7 @@
       enumerable: true,
       value: function (item) {
         this.view.items.appendChild(item.toElement());
+        item.workspace = this;
       }
     },
 

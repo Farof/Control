@@ -19,7 +19,12 @@
           
           view.title = new Element('p', {
             class: 'title',
-            text: this.type.name
+            text: this.type.name,
+            events: {
+              mousedown: function (source, e) {
+                var drag = Drag.start(source.view.root, e, source.view.root.parentNode, true);
+              }.unshift(this)
+            }
           });
           view.root.appendChild(view.title);
           
