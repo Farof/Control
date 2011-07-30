@@ -20,10 +20,10 @@
     
     <div id="collection">
       <div id="processes" class="category">
-        <p class="title">Processes <span class="add" onclick="Process.create();">+</span></p>
+        <p class="title">Processes <span class="add" onclick="Process.create(true);">+</span></p>
       </div>
       <div id="views" class="category">
-        <p class="title">Views <span class="add" onclick="View.create();">+</span></p>
+        <p class="title">Views <span class="add" onclick="View.create(true);">+</span></p>
       </div>
     </div>
 
@@ -36,20 +36,15 @@
     </div>
   </body>
 
-  <script type="application/x-javascript" src="script/enhancer.js"></script>
+  <!--script type="application/x-javascript" src="script/enhancer.js"></script-->
 
-  <script type="application/x-javascript" src="script/lib/uuid.js"></script>
-  <script type="application/x-javascript" src="script/lib/traits-0.4.js"></script>
-
+  <script type="application/x-javascript" src="script/additions/dist/additions.js"></script>
+  
   <script type="application/x-javascript" src="script/control.js"></script>
   <script type="application/x-javascript" src="script/storage.js"></script>
   
-  <script type="application/x-javascript" src="script/interfaces/Events.js"></script>
   <script type="application/x-javascript" src="script/interfaces/Named.js"></script>
-  <script type="application/x-javascript" src="script/interfaces/Collection.js"></script>
-  <script type="application/x-javascript" src="script/interfaces/Map.js"></script>
   
-  <script type="application/x-javascript" src="script/Element.js"></script>
   <script type="application/x-javascript" src="script/Drag.js"></script>
 
   <script type="application/x-javascript" src="script/View.js"></script>

@@ -8,9 +8,10 @@
     }
   };
 
-  
-
-  View.extends(new Collection(View, 'View name'));
+  View.extends(new Collection(View, {
+    Events: Object.undefined,
+    Named: 'View name'
+  }));
 
   View.implements({
     show: {

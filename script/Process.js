@@ -9,7 +9,10 @@
     }
   };
 
-  Process.extends(new Collection(Process, 'Process name'));
+  Process.extends(new Collection(Process, {
+    Events: Object.undefined,
+    Named: 'Process name'
+  }));
 
   Process.implements({
     show: {
